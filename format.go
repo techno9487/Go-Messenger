@@ -45,3 +45,17 @@ type SendMessage struct {
 	Recipient IdStruct `json:"recipient"`
 	Message MessageSend `json:"message"`
 }
+
+type FacebookError struct {
+	Message string `json:"message"`
+	Type string `json:"type"`
+	Code int `json:"code"`
+	Subcode int `json:"error_subcode"`
+	Title string `json:"error_user_title"`
+	UserMessage string `json:"error_user_message"`
+	Trace string `json:"fbtrace_id"`
+}
+
+type FacebookErrorResponse struct {
+	Error FacebookError `json:"error"`
+}
