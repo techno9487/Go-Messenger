@@ -7,7 +7,7 @@ type WebhookEvent struct {
 
 type Event struct {
 	Id string
-	Time int
+	Time int64
 	Messaging []Messaging
 }
 

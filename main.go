@@ -34,8 +34,6 @@ func main() {
 			
 			Admin = msg.Sender.Id
 
-			SendImage("nebula.jpg",msg.Sender)
-
 		}
 
 		if(r.Method == "GET") {
