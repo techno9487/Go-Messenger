@@ -44,29 +44,6 @@ func main() {
 	})
 
 	r.HandleFunc("/api/text",HandleTextEndpoint)
-
-	//automagically set webhook
-
-	tunnel := map[string]interface{}{}
-	resp,err := http.Get("http://localhost:4040/api/tunnels")
-	if err != nil {
-		log.Fatal(err);
-	}
-
-	dec := json.NewDecoder(resp.Body)
-	err = dec.Decode(&tunnel)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _,elm := range tunnel["tunnels"].([]interface{}) {
-		_tunnel := elm.(map[string]interface{})
-		
-		if _tunnel["proto"] == "https" {
-			//now we have the external url, conact facebook and set it
-			log.Println();
-		}
-	}
 	
 	http.ListenAndServe(":5000",nil)
 }
